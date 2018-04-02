@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	padding: 1rem 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+.help-block{
+	color: red;
+}
+
+#response{
+	text-align: center;
+	color:#fff;
+	font-size:24px;
+	font-weight:bold;
+	background-color: #84299b;
+}

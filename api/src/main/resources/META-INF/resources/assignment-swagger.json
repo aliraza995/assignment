@@ -1,0 +1,88 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a assignment rest api. Describe the desired api here",
+        "version": "1.0.0",
+        "title": "Assignment Services"
+    },
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/fizzbuzz": {
+            "post": {
+                "summary": "Performs user action and respond accordingly",
+                "operationId": "doPerform",
+                "tags": [
+                    "fizzbuzz"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "UserAction",
+                        "description": "Contains the user input from 1-N numbers",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserAction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "FizzBuzzResponse object",
+                        "schema": {
+                            "$ref": "#/definitions/FizzBuzzResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "The input is not a positive integer number",
+                        "schema": {
+                            "$ref": "#/definitions/ApiError"
+                        }
+                    },
+                    "500": {
+                        "description": "Server side, unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/ApiError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "UserAction": {
+            "type": "object",
+            "description": "UserAction object",
+            "properties": {
+                "action": {
+                    "type": "integer"
+                }
+            }
+        },
+        "FizzBuzzResponse": {
+            "type": "object",
+            "description": "FizzBuzzResponse object",
+            "properties": {
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "ApiError": {
+            "type": "object",
+            "properties": {
+                "endUserMessage": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
